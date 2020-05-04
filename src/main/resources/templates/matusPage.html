@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="bg-dark text-white" xmlns:th="http://www.thymeleaf.org">
+<div class="bg-dark text-white ">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Матусев Александр Василевич</title>
+</head>
+<body class="text-center">
+<div th:insert="Shablones\Examples::buttons"></div>
+<div class="conatainer mt-3">
+<div class="alert alert-success" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="alert-heading">Я очень рад вас тут увидеть!!!</h4>
+    <p>На этой странице вы найдете краткую информацию о том что и как тут работает</p>
+    <hr>
+    <p class="mb-0">Этот сайт-резюме создан как первый экспериментальный проект и находится в состоянии постоянной доработки</p>
+</div>
+</div>
+<div class="mx-auto" style="width: 700px;">
+    <div  class="conatainer mt-5 text-center">
+            <h1>Сайт находится в процессе постоянной доработки!</h1>
+    </div>
+</div>
+
+<div class="conatainer mt-3 text-center">
+<h4>Сайт задуман на основе парсера сайта HH.ru, который в свою очередь написан на популярной библиотеке Jsoup. При первой загрузке приложения
+происходит анализ строки поискового запроса на сайте: "найти програмиста в Сочи". Сайт возвращает результат в виде списка первых 20
+кандидатов, парсер в свою очередь записывает в объект типа Article информацию о каждом соскателе, открывая ссылку на резюме каждого
+из них. Вывод результата происходит с помощью Bootstrap объектов "карточки". В примере обрабатываются первые 5X20=100 результатов
+поискового запроса.</h4>
+</div>
+
+<div th:insert="\Shablones\Examples::urles">
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+<!-- Комментарий -->
+<footer></footer>
+</div>
+</html>
+

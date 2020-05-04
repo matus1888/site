@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Title</title>
+<div th:fragment="buttons">
+        <head>
+            <a href="greeting" class="btn btn-primary btn-lg " role="button" aria-disabled="true">Главная страница</a>
+            <a href="/" class="btn btn-secondary btn-lg " role="button" aria-disabled="true">Домой</a>
+            <a href="analyzehh" class="btn btn-secondary btn-lg my-1 " role="button" aria-disabled="true">Список моих потенциальных друзей</a>
+        </head>
+</div>
+    <div th:fragment="pages">
+        <div class="container">
+            <div class="row justify-content-center ">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link"  href="/analyzehh?name=1">1</a></li>
+                        <li class="page-item"><a class="page-link" href="/analyzehh?name=2">2</a></li>
+                        <li class="page-item"><a class="page-link" href="/analyzehh?name=3">3</a></li>
+                        <li class="page-item"><a class="page-link" href="/analyzehh?name=4">4</a></li>
+                        <li class="page-item"><a class="page-link" href="/analyzehh?name=5">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+<div th:fragment="urles">
+    <div class="conatainer mt-1 text-center">
+        <h6>По всем вопросам  обращаться
+            <a href="https://vk.com/id101179628"><img src="https://pngicon.ru/file/uploads/vk-64x64.png" alt="Значок вк"></a>
+            <a href="https://t.me/matus1888"><img src="https://pngicon.ru/file/uploads/telegram-64x64.png" alt="Значок теле"></a>
+            <a href="mailto:matus1888@gmail.com"><img src="https://pngicon.ru/file/uploads/elektron-pochta-64x64.png" alt="Значок почта"></a>
+            Желательно:
+            <a href="https://wa.me/79654748370"><img src="https://pngicon.ru/file/uploads/whatsapp-64x64.png" alt="Значок ватсап"></a>
+        </h6>
+    </div>
+</div>
+<body>
+
+</body>
+</html>

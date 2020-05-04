@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<div class="bg-dark text-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Анализ  hh.ru сайта</title>
+</head>
+<body class="text-center">
+<div th:insert="\Shablones\Examples::buttons">
+</div>
+<div th:insert="\Shablones\Examples::pages">
+</div>
+<h2 class="text-center">На этой станице выведены 20 человек,</h2>
+<h3 class="text-center">которые хотят работать программистами в городе Сочи</h3>
+<a>Если ваши друзья имеют специальность не свзяанную с программированием, то вам необходимо поправить строку входных параметров</a>
+<div th:if="${A.empty}">
+    <td colspan="2"> Нет соискателей на сегодня </td>
+</div>
+<div class="card-columns border-success ">
+<tr th:each="Article : ${A}">
+    <div class="card my-3">
+        <div class="m-2">
+            <h5 class="card-title text-danger"><span th:text="${Article.compesation}"></span></h5>
+            <p class="card-text text-success"><a th:text="${Article.listInOneString}"></a></p>
+            <a href="#" class="btn btn-link"><span th:text="${Article.gender}"></span></a>
+        </div>
+    </div>
+</tr>
+</div>
+</body>
+<div th:insert="\Shablones\Examples::pages">
+</div>
+<div th:insert="\Shablones\Examples::urles">
+</div>
+</div>
+</html>
