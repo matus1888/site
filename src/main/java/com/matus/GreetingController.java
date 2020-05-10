@@ -37,18 +37,16 @@ public class GreetingController {
                            @RequestParam(name = "next", required = false, defaultValue = "false") String next,
                            @RequestParam(name = "previous", required = false, defaultValue = "false") String previous) throws IOException {
 
-        log.info("'name' = " + name + " 'next'= " + next + " 'previous =' " + previous);
+        log.info("'name'= " + name + "; 'next'= " + next + "; 'previous'= " + previous);
         int paggig= Integer.valueOf(name);
         if(next.equals("true")){
-            System.out.println("Сработала кнопка ДАЛЬШЕ pagi="+pagi);
+            log.info("button 'previous' is active");
         }
         if(previous.equals("true")){
-            System.out.println("Сработла кнопка НАЗАД pagi="+pagi);
+            log.info("button 'next' is active");
         }
-        System.out.println(paggig);
+        log.info("current page is "+paggig);
         List<Integer> pages = Paginator.getAListOfPages(paggig);
-        System.out.println("pages size is = "+ pages.size());
-        pages.forEach(x-> System.out.print(x+":"));
             model.addAttribute("A", Paginator.getProperties(paggig));
             model.addAttribute("p1", pages.get(0));
             model.addAttribute("p2", pages.get(1));

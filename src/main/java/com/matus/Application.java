@@ -18,10 +18,11 @@ public class Application {
         analyzer.method();
         try {
             article = analyzer.getting(analyzer.getAtricles());
-            log.info("size of tge article list= "+article.size());
+            log.info("size of the 'article' in class Application= "+article.size());
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Paginator.getListPages();
     }
 }

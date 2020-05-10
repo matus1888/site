@@ -15,6 +15,9 @@ public  class Analyzer {
      public static Logger log=Application.log;
     public static int indexx;
     public static int globalAllOfSearch;
+    public static int intGAOS;
+    public static int prom;
+    public static int prom2;
     //Программист
     //public static String url="https://sochi.hh.ru/search/resume?text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=237&exp_period=all_time&logic=normal&pos=full_text&st=resumeSearch&page=";
     //Дирижер
@@ -30,6 +33,7 @@ public  class Analyzer {
         indexx= Integer.valueOf(fdfdfs[fdfdfs.length-1])/20+1;
         log.info("variable bound List aricle indexx= "+ indexx);
         globalAllOfSearch=allOfSearch;
+        intGAOS=Integer.valueOf(fdfdfs[fdfdfs.length-1]);
         return allOfSearch;
     }
     public   List<String> getAtricles()throws IOException{
@@ -38,7 +42,7 @@ public  class Analyzer {
         List<String>zrp=new ArrayList<>();
         List<Integer>integers=new ArrayList<>();
         List<String> listURL = new ArrayList<>();
-
+        System.out.println("|___________________________100%___________________________|");
         while (!bool) {
             AtomicInteger i = new AtomicInteger();
 
@@ -59,7 +63,10 @@ public  class Analyzer {
                 i.getAndIncrement();
             });
             if (index!=indexx) {
-                log.info("iteration= "+index);
+                System.out.print("██████");
+                if(indexx==index+1){
+                    System.out.print("\n");
+                }
                 index++;
             }else{
                 log.info("please  wait for the analysis to finish var indexx= " + indexx);
@@ -69,7 +76,7 @@ public  class Analyzer {
                 integers.add(Integer.valueOf(zp.replaceAll("[\\s. ]","").replaceAll("[a-zA-Zа-яА-Я]","")));
             });
         }
-        log.info("method 'getArticles' returned object with size =  "+listURL.size());
+        log.info("method 'getArticles' List<url> with size =  "+listURL.size());
 
         return listURL;
     }
@@ -81,6 +88,7 @@ public  class Analyzer {
         //Содержит все строки по каждому СОИСКАТЕЛЬ-СТРОКА
         List<String> itog = new ArrayList<>();
         List<Article>articles=new ArrayList<>();
+        System.out.println("|___________________________100%___________________________|");
         a.forEach(elements->{
             Document doc = null;
             try {
@@ -140,8 +148,17 @@ public  class Analyzer {
                 itog.add("(⌐■_■)" + x + "(⌐■_■)");
             });
             articles.add(soiskatel);
+                if((articles.size()*100/intGAOS)%10==0&&prom!=articles.size()){
+                    prom=articles.size();
+                    if(prom2!=articles.size()*100/intGAOS%10){
+                    System.out.print("██████");
+        }
+
+            }
+            prom2=(articles.size()*100/intGAOS)%10;
         });
-        log.info("method  'greeting' returned object with size = "+ articles.size());
+        System.out.print("\n");
+        log.info("method  'greeting' returned List<Article> with size = "+ articles.size());
         return articles;
     }
 }
