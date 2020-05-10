@@ -5,8 +5,8 @@
     <title>Title</title>
 <div th:fragment="buttons">
         <head>
-            <a href="greeting" class="btn btn-primary btn-lg " role="button" aria-disabled="true">Главная страница</a>
-            <a href="/" class="btn btn-secondary btn-lg " role="button" aria-disabled="true">Домой</a>
+            <a href="greeting" class="btn btn-secondary btn-lg " role="button" aria-disabled="true">Главная страница</a>
+            <a href="/" class="btn btn-secondary btn-lg " role="button" aria-disabled="true">Обо мне</a>
             <a href="analyzehh" class="btn btn-secondary btn-lg my-1 " role="button" aria-disabled="true">Список моих потенциальных друзей</a>
         </head>
 </div>
@@ -16,18 +16,18 @@
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                            <a class="page-link" th:href="'/analyzehh?previous=true&name=' + ${p1}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link"  href="/analyzehh?name=1">1</a></li>
-                        <li class="page-item"><a class="page-link" href="/analyzehh?name=2">2</a></li>
-                        <li class="page-item"><a class="page-link" href="/analyzehh?name=3">3</a></li>
-                        <li class="page-item"><a class="page-link" href="/analyzehh?name=4">4</a></li>
-                        <li class="page-item"><a class="page-link" href="/analyzehh?name=5">5</a></li>
+                        <li class="page-item"><a class="page-link" th:href="'/analyzehh?name=' + ${p1}"><b th:text=${p1} /></a></li>
+                        <li class="page-item"><a class="page-link" th:href="'/analyzehh?name=' + ${p2}"><b th:text=${p2} /></a></li>
+                        <li class="page-item "><a class="page-link" th:href="'/analyzehh?name=' + ${p3}"><b th:text=${p3} /></a></li>
+                        <li class="page-item"><a class="page-link" th:href="'/analyzehh?name=' + ${p4}"><b th:text=${p4} /></a></li>
+                        <li class="page-item"><a class="page-link" th:href="'/analyzehh?name=' + ${p5}"><b th:text=${p5} /></a></li>
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
+                            <a class="page-link" th:href="'/analyzehh?next=true&name=' + ${p5}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>

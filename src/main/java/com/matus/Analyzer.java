@@ -12,21 +12,38 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
 public  class Analyzer {
-     public Logger log=Application.log;
-    public  int indexx;
-    public void setIndexx(int indexx) {
-        log.info("in Analyzer.index= "+this.indexx +"set variable indexx= "+ indexx);
-        this.indexx = indexx;
+     public static Logger log=Application.log;
+    public static int indexx;
+    public static int globalAllOfSearch;
+    //Программист
+    //public static String url="https://sochi.hh.ru/search/resume?text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=237&exp_period=all_time&logic=normal&pos=full_text&st=resumeSearch&page=";
+    //Дирижер
+    //public static String url="https://sochi.hh.ru/search/resume?clusters=True&area=237&order_by=relevance&logic=normal&pos=full_text&exp_period=all_time&no_magic=False&st=resumeSearch&text=%D0%B4%D0%B8%D1%80%D0%B8%D0%B6%D0%B5%D1%80&page=";
+    //Музыкант
+    public static String url="https://sochi.hh.ru/search/resume?text=vepsrfyn&area=237&exp_period=all_time&logic=normal&pos=full_text&st=resumeSearch&page=";
+    public static int  method() throws IOException {
+       Document search1 = Jsoup.connect(url+"0").get();
+       String alles= search1.getElementsByAttributeValue("data-qa","bloko-header-1").text();
+       int allOfSearch = Integer.valueOf(alles.split("резюме")[0].replaceAll("[А-Яа-я ]",""));
+        String [] fdfdfs= alles.replaceAll("[А-Яа-я]", "-").trim().replaceAll("-"," ")
+                .trim().split(" ");
+        indexx= Integer.valueOf(fdfdfs[fdfdfs.length-1])/20+1;
+        log.info("variable bound List aricle indexx= "+ indexx);
+        globalAllOfSearch=allOfSearch;
+        return allOfSearch;
     }
     public   List<String> getAtricles()throws IOException{
         boolean bool=false;
-        int index = 1;
+        int index = 0;
         List<String>zrp=new ArrayList<>();
         List<Integer>integers=new ArrayList<>();
         List<String> listURL = new ArrayList<>();
+
         while (!bool) {
             AtomicInteger i = new AtomicInteger();
-            Document search = Jsoup.connect("http://sochi.hh.ru/search/resume?L_is_autosearch=false&area=237&clusters=true&exp_company_size=any&exp_industry=any&exp_period=last_year&logic=normal&no_magic=false&order_by=relevance&pos=position%2Cworkplace_position&text=%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&page=" + index).get();
+
+           // Document search = Jsoup.connect("http://sochi.hh.ru/search/resume?L_is_autosearch=false&area=237&clusters=true&exp_company_size=any&exp_industry=any&exp_period=last_year&logic=normal&no_magic=false&order_by=relevance&pos=position%2Cworkplace_position&text=%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&page=" + index).get();
+            Document search = Jsoup.connect(url + index).get();
             Elements rezultSearch = search.getElementsByAttributeValue("class", "resume-search-item__name");
             Elements soisk = search.getElementsByAttributeValue("class", "resume-search-item__content");
             soisk.forEach(so -> {
@@ -45,7 +62,7 @@ public  class Analyzer {
                 log.info("iteration= "+index);
                 index++;
             }else{
-                log.info("press wait for the analysis to finish var indexx= " + indexx);
+                log.info("please  wait for the analysis to finish var indexx= " + indexx);
                 bool = true;
             }
             zrp.forEach(zp->{
@@ -53,6 +70,7 @@ public  class Analyzer {
             });
         }
         log.info("method 'getArticles' returned object with size =  "+listURL.size());
+
         return listURL;
     }
     public  List<Article> getting(List<String> a) {
